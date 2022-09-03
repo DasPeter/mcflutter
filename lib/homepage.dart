@@ -8,10 +8,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isClickedPerson = false;
-  bool isClickedTimer = false;
-  bool isClickedPhone1 = false;
-  bool isClickedPhone2 = false;
+  bool personIsClicked = false;
+  bool timerIsClicked = false;
+  bool androidIsClicked = false;
+  bool iphoneIsClicked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,34 +66,58 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                    color: isClickedPerson ? Colors.indigo : Colors.black,
+                    color: personIsClicked ? Colors.indigo : Colors.black,
                     onPressed: () {
-                      isClickedPerson = !isClickedPerson;
+                      personIsClicked = !personIsClicked;
                       setState(() {});
+                      const snackbar = SnackBar(
+                        content: Text("Únete a un club con otras personas"),
+                      );
+                      ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
                     },
                     icon: const Icon(Icons.accessibility_rounded),
                   ),
                   IconButton(
-                    color: isClickedTimer ? Colors.indigo : Colors.black,
+                    color: timerIsClicked ? Colors.indigo : Colors.black,
                     onPressed: () {
-                      isClickedTimer = !isClickedTimer;
+                      timerIsClicked = !timerIsClicked;
                       setState(() {});
+
+                      const snackbar = SnackBar(
+                        content:
+                            Text("Cuenta regresiva para el evento: 31 días"),
+                      );
+                      ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
                     },
                     icon: const Icon(Icons.timer),
                   ),
                   IconButton(
-                    color: isClickedPhone1 ? Colors.indigo : Colors.black,
+                    color: androidIsClicked ? Colors.indigo : Colors.black,
                     onPressed: () {
-                      isClickedPhone1 = !isClickedPhone1;
+                      androidIsClicked = !androidIsClicked;
                       setState(() {});
+
+                      const snackbar = SnackBar(
+                        content: Text("Llama al número 4155550198"),
+                      );
+                      ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
                     },
                     icon: const Icon(Icons.phone_android),
                   ),
                   IconButton(
-                    color: isClickedPhone2 ? Colors.indigo : Colors.black,
+                    color: iphoneIsClicked ? Colors.indigo : Colors.black,
                     onPressed: () {
-                      isClickedPhone2 = !isClickedPhone2;
+                      iphoneIsClicked = !iphoneIsClicked;
                       setState(() {});
+
+                      const snackbar = SnackBar(
+                        content: Text("Llama al celular 3317865113"),
+                      );
+                      ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
                     },
                     icon: const Icon(Icons.phone_iphone),
                   ),
